@@ -4,6 +4,7 @@ var Robot=function(x,y,f)
 	this.charge=6;
 	this.destination=null;
 	this.f=f;
+	this.path=null;
 }
 
 Robot.prototype=
@@ -25,22 +26,20 @@ Robot.prototype=
 	},
 	calcRoute: function(p)
 	{
-		
+		var r=new Router(this.f);
+		r.setStart(this.pos);
+		r.setEnd(this.destination);
+		this.path=r.calcRoute();
+		this.dlist=r.list;
 	},
 	think: function()
 	{
 		if(!this.hasDestination())
 		{
 			this.findDestination();
+			this.calcRoute();
 		}
-		if(this.f.getField(this.pos.preferedMove(this.destination)) == 'B')
-		{
-			alert('fal!');
-		}
-		else
-		{
-			this.nextMove=this.pos.preferedMove(this.destination);
-		}
+		this.nextMove=this.path.getNext();
 	},
 	update: function()
 	{

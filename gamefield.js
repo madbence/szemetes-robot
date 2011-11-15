@@ -33,6 +33,10 @@ GameField.prototype=
 	{
 		return this.fields[p.y][p.x];
 	},
+	fieldExists: function(p)
+	{
+		return this.fields[p.y]!=undefined && this.fields[p.y][p.x]!=undefined;
+	},
 	getGarbages: function()
 	{
 		var arr=[];

@@ -5,7 +5,7 @@ window.onload=function()
 	//console.log(field.getField(8,8));
 	var canvas=new Canvas(config.canvasWidth, config.canvasHeight, config.canvasScale, document.getElementById(config.canvasID));
 	canvas.setOffset(Math.floor(-field.sizeX/2), Math.floor(field.sizeY/2));
-	var robot=new Robot(2,2,field);
+	var robot=new Robot(2,6,field);
 	
 	canvas.drawField(field);
 	canvas.drawRobot(robot);
@@ -36,6 +36,8 @@ var config=
 		robot: 'blue',
 		start: 'green',
 		path: 'rgba(0,0,255,0.5)',
+		path2: 'rgba(0,0,128,0.5)',
+		path3: 'rgba(0,128,128,0.1)',
 		garbage: 'red',
 		wall: 'black',
 		obstackle: 'purple'
@@ -54,11 +56,11 @@ var config=
 FFFFFFFFFFFFFFF\n\
 FK            F\n\
 F             F\n\
-F   BB        F\n\
+F   BBBBBBBBB F\n\
 F   B         F\n\
-F   B         F\n\
-F   B         F\n\
-F   B .       F\n\
+F   B BBB BBBBF\n\
+F   B   B B   F\n\
+F   B   BBB . F\n\
 F   B        PF\n\
 FFFFFFFFFFFFFFF',
 }

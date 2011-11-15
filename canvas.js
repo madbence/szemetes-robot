@@ -61,6 +61,20 @@ Canvas.prototype=
 		this.fill(new Position(this.offsetX+r.pos.x, this.offsetY-r.pos.y), config.colors['robot']);
 		if(r.nextMove)
 			this.fill(new Position(this.offsetX+r.nextMove.x, this.offsetY-r.nextMove.y), config.colors['path']);
+		if(r.path)
+		{
+			for(var i=0;i<r.path.path.length;i++)
+			{
+				this.fill(new Position(this.offsetX+r.path.path[i].x, this.offsetY-r.path.path[i].y), config.colors['path2']);
+			}
+		}
+		if(r.dlist)
+		{
+			for(var i=0;i<r.dlist.path.length;i++)
+			{
+				this.fill(new Position(this.offsetX+r.dlist.path[i].pos.x, this.offsetY-r.dlist.path[i].pos.y), config.colors['path3']);
+			}
+		}
 		//console.log(new Position(this.offsetX+r.x, this.offsetY-r.y));
 	}
 }
