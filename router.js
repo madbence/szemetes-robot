@@ -15,7 +15,7 @@ Router.prototype=
 		list=new RouterPath(this.start,this.f);
 		list.addNeighbours(this.start);
 		used=[];
-		var l=100;
+		var l=1000;
 		var path;
 		do
 		{
@@ -46,10 +46,8 @@ Router.prototype=
 			used.push(best);
 		}while(l && !best.equals(this.end));
 		path=new Path();
-		var k=100;
-		for(var p=best;p&&k;)
+		for(var p=best;p;)
 		{
-			k--;
 			path.add(p);
 			for(var i=0;i<list.path.length;i++)
 			{
@@ -84,6 +82,7 @@ RouterPath.prototype.add=function(p,pr)
 RouterPath.prototype.getCost=function(p,d)
 {
 	return Math.abs(p.x-d.x)+Math.abs(p.y-d.y);
+	// return Math.round(p.distance(d));
 }
 
 RouterPath.prototype.addNeighbours=function(p)

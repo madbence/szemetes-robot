@@ -14,6 +14,10 @@ Path.prototype=
 	{
 		return this.path[this.pos++];
 	},
+	hasNext: function()
+	{
+		return this.path[this.pos] != null;
+	},
 	empty: function()
 	{
 		return this.path.length==0;
@@ -30,6 +34,10 @@ Path.prototype=
 			a.add(this.path[i-1]);
 		}
 		return a;
+	},
+	length: function()
+	{
+		return this.path.length;
 	}
 }
 	
